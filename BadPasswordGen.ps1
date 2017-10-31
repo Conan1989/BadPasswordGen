@@ -7,7 +7,7 @@ https://blogs.technet.microsoft.com/meacoex/2011/08/04/how-to-generate-a-secure-
 
 Function funBadPasswordGen
     {
-        Param([Parameter(Mandatory=$false)][ValidateRange(1,128)][int]$Length = 32)
+        Param([Parameter(Mandatory=$false)][ValidateRange(1,127)][int]$Length = 32)
         
         Process
             {
