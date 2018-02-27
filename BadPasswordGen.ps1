@@ -5,15 +5,11 @@ https://blogs.technet.microsoft.com/meacoex/2011/08/04/how-to-generate-a-secure-
 #>
 
 
-Function funBadPasswordGen
-    {
-        Param([Parameter(Mandatory=$false)][ValidateRange(1,127)][int]$Length = 32)
+Function badPasswordGen {
+    Param([Parameter(Mandatory=$false)][ValidateRange(16,128)][int]$Length = 32)
         
-        Process
-            {
-                Do {$NewPassword_PlainText += ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray() | Get-Random -Count 1)}
-                While ($NewPassword_PlainText.length -lt $Length)
+    Do {$NewPassword_PlainText += ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.ToCharArray() | Get-Random -Count 1)}
+    While ($NewPassword_PlainText.length -lt $Length)
 
-                Return $NewPassword_PlainText
-            }
-    }
+    Return $NewPassword_PlainText
+}
